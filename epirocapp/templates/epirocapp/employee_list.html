@@ -1,0 +1,49 @@
+{% extends "epirocapp/base.html"%}
+
+{% block content %}
+<table class="table table-bordered">
+    <thead class="border-bottom font-weight-bold">
+         <tr>
+            <td bgcolor="green">Full Name</td>
+            <td>Mobile</td>
+            <td>Position</td>
+            <td>Edit</td>
+            <td>Delete</td>
+<!--            <td>-->
+<!--                <a href="{% url 'employee_insert' %}" class="btn btn-outline-success">-->
+<!--                    <i class="fas fa-plus"> Add New</i>-->
+<!--                </a>-->
+<!--            </td>-->
+         </tr>
+    </thead>
+    <tbody>
+        {% for employee in employee_list %}
+            <tr>
+                <td>{{employee.full_name}}</td>
+                <td>{{employee.mobile}}</td>
+                <td>{{employee.position}}</td>
+<!--                <td>{{Edit}}</td>-->
+<!--                <td>{{Delete}}</td>-->
+                <td><a href="{% url 'employee_update' employee.id %}"  class="btn btn-primary"> Edit</a></td>
+                <td><a href="{% url 'employee_delete' employee.id %}"  class="btn btn-danger"> Delete</a></td>
+<!--                        <i class="far fa-edit fa-ig>" ></i> EDIT-->
+
+<!--                    </a>-->
+<!--                    <form action="{% url 'employee_delete' employee.id %}"  method="post" class="d-inline">-->
+<!--                        {% csrf_token %}-->
+<!--                        <button type="submit" class="btn">-->
+<!--                            <i class="far fa-trash-alt fa-1g text-danger float-right"></i>-->
+<!--                        </button>-->
+<!--                    </form>-->
+
+<!--                    <a href="/employee_list/{{employee.id }}"> Edit </a>-->
+<!--                    <a href="/employee_list/{{employee.id }}"> Delete </a>-->
+
+                </td>
+             </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+{% endblock content %}
