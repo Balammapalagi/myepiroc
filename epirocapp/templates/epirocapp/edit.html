@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Updated records</title>
+</head>
+<body>
+<form method="POST" action="/update/{{employee.id}}">
+    {% csrf_token %}
+    <div>
+        <br>        `
+        <p>
+            <h3> Update details </h3>
+        </p>
+    </div>
+    <div>
+        <p> Employee Id:</p>
+        <div>
+            <input type="text" name="emp_code" value="{{employee.emp_code}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="full_name" value="{{employee.full_name}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="email" value="{{employee.email}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="contact" value="{{employee.contact}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="java" value="{{employee.java}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="cplusplus" value="{{employee.cplusplus}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="csharp" value="{{employee.csharp}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="selenium" value="{{employee.selenium}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="python" value="{{employee.python}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="powerbi" value="{{employee.powerbi}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="azuredevops" value="{{employee.azuredevops}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="emp_code" value="{{employee.emp_code}}" />
+        </div>
+    </div>
+    <div>
+        <p> Employee Name:</p>
+        <div>
+            <input type="text" name="courses" value="{{employee.courses}}" />
+        </div>
+    </div>
+    <div>
+    <br>
+        <button type="submit"> Update </button>
+    </div>
+</form>
+
+</body>
+</html>

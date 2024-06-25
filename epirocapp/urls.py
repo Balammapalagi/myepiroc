@@ -20,10 +20,10 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.signup_page, name='signup'),
     path('signin/', views.signin_page, name='signin'),
-    path('home/', views.home_page, name='home'),
-    path('', views.signup_page, name='employee_insert'),
-    path('employee_list<int:id>/', views.signup_page, name='employee_update'),
-    path('employee_list/', views.employee_list, name='employee_list'),
-    path('employee_delete<int:id>/', views.employee_delete, name='employee_delete')
+    path('employee_records/', views.employee_list, name='employee_list'),# get all list or display all records
+    path('employee_delete<int:id>/', views.employee_delete, name='employee_delete'),  # get all list or display all records
+    path('edit/<int:id>/', views.edit, name='edit'), # get all list or display all recwords
+    path('update/<int:id>', views.update), # get all list or display all records
 ]

@@ -1,45 +1,86 @@
 {% extends "epirocapp/base.html"%}
 
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HTML</title>
+<style>
+   input[type=text] {
+	  padding: 10px;
+	  font-size: 17px;
+	  border: 1px solid grey;
+	  float: left;
+	  width: 50%;
+	  background: #CCCCCC;
+	  text-align: center;
+	}
+	input[type=submit] {
+	  background-color: #1252FF;
+	  width: 100px;
+	  font-size: 16px;
+	  padding: 10px;
+	}
+	input[type=submit]:hover {
+      background: #0b7dda;
+	}
+</style>
+</head>
+<body>
+    <h2> Search Button </h2>
+    <form  action="/action_page.php">
+	  <input id="search box" type="text" placeholder="Search here" name="search">
+	  <input id="search btn" type="submit" value="search">
+	</form>
+
+</body>
+</html>
 <table class="table table-bordered">
+<!--    <form  action="/action_page.php">-->
+<!--	  <input id="search box" type="text" placeholder="Search here" name="search">-->
+<!--	  <input id="search btn" type="submit" value="search">-->
+<!--	</form>-->
     <thead class="border-bottom font-weight-bold">
          <tr>
-            <td bgcolor="green">Full Name</td>
-            <td>Mobile</td>
-            <td>Position</td>
-            <td>Edit</td>
-            <td>Delete</td>
-<!--            <td>-->
-<!--                <a href="{% url 'employee_insert' %}" class="btn btn-outline-success">-->
-<!--                    <i class="fas fa-plus"> Add New</i>-->
-<!--                </a>-->
-<!--            </td>-->
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Courses</th>
+            <th>Java</th>
+            <th>C++</th>
+            <th>C#</th>
+            <th>Selenium</th>
+            <th>Python</th>
+            <th>Power BI</th>
+            <th>AzureDevOps</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+
          </tr>
     </thead>
     <tbody>
         {% for employee in employee_list %}
             <tr>
+                <td>{{employee.emp_code}}</td>
                 <td>{{employee.full_name}}</td>
-                <td>{{employee.mobile}}</td>
-                <td>{{employee.position}}</td>
-<!--                <td>{{Edit}}</td>-->
-<!--                <td>{{Delete}}</td>-->
-                <td><a href="{% url 'employee_update' employee.id %}"  class="btn btn-primary"> Edit</a></td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.contact}}</td>
+                <td>{{employee.courses}}</td>
+                <td>{{employee.java}}</td>
+                <td>{{employee.cplusplus}}</td>
+                <td>{{employee.csharp}}</td>
+                <td>{{employee.selenium}}</td>
+                <td>{{employee.python}}</td>
+                <td>{{employee.powerbi}}</td>
+                <td>{{employee.azuredevops}}</td>
+                <td><a href="/edit/{{ employee.id }}"  class="btn btn-primary"> Edit</a></td>
                 <td><a href="{% url 'employee_delete' employee.id %}"  class="btn btn-danger"> Delete</a></td>
-<!--                        <i class="far fa-edit fa-ig>" ></i> EDIT-->
 
-<!--                    </a>-->
-<!--                    <form action="{% url 'employee_delete' employee.id %}"  method="post" class="d-inline">-->
-<!--                        {% csrf_token %}-->
-<!--                        <button type="submit" class="btn">-->
-<!--                            <i class="far fa-trash-alt fa-1g text-danger float-right"></i>-->
-<!--                        </button>-->
-<!--                    </form>-->
+<!--                <td><a href="/employee_update/{{ employee.id }}"  class="btn btn-primary"> Edit</a></td>-->
+<!--                <td><a href="{% url 'employee_delete' employee.id %}"  class="btn btn-danger"> Delete</a></td>-->
 
-<!--                    <a href="/employee_list/{{employee.id }}"> Edit </a>-->
-<!--                    <a href="/employee_list/{{employee.id }}"> Delete </a>-->
-
-                </td>
              </tr>
         {% endfor %}
     </tbody>

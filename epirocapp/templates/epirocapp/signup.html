@@ -4,7 +4,6 @@
   <!-- Design by foolishdeveloper.com -->
     <title>Glassmorphism login Form Tutorial in html css</title>
 
-{% load crispy_forms_tags %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
@@ -52,7 +51,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 620px;
+    height: 520px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -118,9 +117,9 @@ button{
   background: red;
   width: 150px;
   border-radius: 3px;
-  padding: 5px 10px 10px 5px 10px;
+  padding: 5px 10px 10px 5px;
   background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
+  color: #eaf0fb;3
   text-align: center;
 }
 .social div:hover{
@@ -141,32 +140,26 @@ button{
         <div class="shape"></div>
     </div>
 
-   <form action="" method="post" autocomplete="off">
-    {% csrf_token %}
+   <form action="" method="post"  autocomplete="off">
+        {% csrf_token %}
        <h3>SignUp Here</h3>
-    {{form.full_name|as_crispy_field}}
-    {{form.mobile|as_crispy_field}}
-    <div class="row">
-         <div class="col-md-4">
-             {{form.emp_code|as_crispy_field}}
-         </div>
-         <div class="col-md-4">
-              {{form.position|as_crispy_field}}
-         </div>
-    </div>
-     <div class="row">
-          <div class="col-md-8">
-              <button type="submit" class="btn btn-success btn-block btn-lg">
-                  <i class="fas fa-database"></i>
-                  Submit </button>
-          </div>
-          <div class="col-md-4">
-              <button type="submit">
-              <a href="{% url 'employee_list' %}" class="btn btn-secondary btn-block btn-lg">
-                  <i class="fas fa-stream"></i> Back To
-              </a></button>
-          </div>
-     </div>
-   </form>
+
+	   <label for="username">Username</label>
+        <input type="text" placeholder="Enter UserName" id="username" name="username">
+
+	   <label for="email">Email</label>
+        <input type="text" placeholder="Email or Phone" id="email" name="email">
+
+        <label for="password1">Password</label>
+        <input type="password" placeholder="Password" id="password1" name="password1">
+
+	    <label for="password2">ConfirmPassword</label>
+        <input type="password" placeholder="Confirm Password" id="password2", name="password2">
+
+<!--        <button type="submit"> SignUp <a href="home"></a> </button>-->
+       <button type="submit"> SignUp </button>
+       <a href="#" > I already have account </a>
+
+    </form>
 </body>
 </html>

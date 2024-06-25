@@ -1,0 +1,50 @@
+{% extends "epirocapp/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">-->
+<!--    &lt;!&ndash;Stylesheet&ndash;&gt;-->
+<!--    <style media="screen">-->
+
+
+   <form action="" method="post" autocomplete="off">
+       {% csrf_token %}
+       <h3>User Profile</h3>
+        {{ form.full_name|as_crispy_field }}
+        {{ form.email|as_crispy_field }}
+        {{ form.contact|as_crispy_field }}
+        {{ form.java|as_crispy_field }}
+        {{ form.cplusplus|as_crispy_field }}
+        {{ form.csharp|as_crispy_field }}
+        {{ form.selenium|as_crispy_field }}
+        {{ form.python|as_crispy_field }}
+        {{ form.powerbi|as_crispy_field }}
+        {{ form.azuredevops|as_crispy_field }}
+    <div class="row">
+         <div class="col-md-4">
+             {{form.emp_code|as_crispy_field}}
+         </div>
+         <div class="col-md-8">
+              {{form.courses|as_crispy_field}}
+         </div>
+    </div>
+    <div class="row">
+          <div class="col-md-8">
+              <button type="submit" class="btn btn-success btn-block btn-lg">
+                  <i class="fas fa-database"></i>
+                  Submit </button>
+          </div>
+         <div class="col-md-4">
+              <a href="{% url 'employee_list' %}" class="btn btn-secondary btn-block btn-lg">
+                  <i class="fas fa-stream"></i> User Profile
+              </a>
+          </div>
+
+
+     </div>
+
+     </form>
+
+
+{% endblock content %}

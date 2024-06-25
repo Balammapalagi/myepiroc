@@ -60,7 +60,7 @@ ROOT_URLCONF = 'myepiroc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'myepiroc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EmployeeDB',
+        'NAME': 'EmployeepersonalDB',
         'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
