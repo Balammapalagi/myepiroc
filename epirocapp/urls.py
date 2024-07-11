@@ -20,8 +20,10 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.signup_page, name='signup'),
+    path('signup/', views.signup_page, name='signup'),
     path('signin/', views.signin_page, name='signin'),
+    path('', views.employee_form3, name='employee_form'),
+    path('<int:id>/', views.employee_form3, name='employee_update'),
     path('employee_records/', views.employee_list, name='employee_list'),# get all list or display all records
     path('employee_delete<int:id>/', views.employee_delete, name='employee_delete'),  # get all list or display all records
     path('edit/<int:id>/', views.edit, name='edit'), # get all list or display all recwords

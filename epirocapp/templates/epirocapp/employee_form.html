@@ -1,32 +1,91 @@
+
+<!DOCTYPE html>
 {% extends "epirocapp/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">-->
-<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">-->
-<!--    &lt;!&ndash;Stylesheet&ndash;&gt;-->
-<!--    <style media="screen">-->
+<html>
+<head>
+<style>
+body {
+  background-color: orange;
+}
+    .button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #04AA6D;
+}
+
+.button1:hover {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>
+</head>
+<body>
 
 
    <form action="" method="post" autocomplete="off">
        {% csrf_token %}
-       <h3>User Profile</h3>
-        {{ form.full_name|as_crispy_field }}
-        {{ form.email|as_crispy_field }}
-        {{ form.contact|as_crispy_field }}
-        {{ form.java|as_crispy_field }}
-        {{ form.cplusplus|as_crispy_field }}
-        {{ form.csharp|as_crispy_field }}
-        {{ form.selenium|as_crispy_field }}
-        {{ form.python|as_crispy_field }}
-        {{ form.powerbi|as_crispy_field }}
-        {{ form.azuredevops|as_crispy_field }}
     <div class="row">
+        <div class="col-md-4">
+             {{form.full_name|as_crispy_field}}
+         </div>
+        <div class="col-md-4">
+             {{form.email|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+             {{form.contact|as_crispy_field}}
+         </div>
          <div class="col-md-4">
              {{form.emp_code|as_crispy_field}}
          </div>
-         <div class="col-md-8">
-              {{form.courses|as_crispy_field}}
+         <div class="col-md-4">
+             {{form.java|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+              {{form.rpa|as_crispy_field}}
+         </div>
+        <div class="col-md-4">
+             {{form.python|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+             {{form.cplusplus|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+              {{form.csharp|as_crispy_field}}
+         </div>
+        <div class="col-md-4">
+              {{form.selenium|as_crispy_field}}
+         </div>
+        <div class="col-md-4">
+             {{form.powerbi|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+             {{form.azuredevops|as_crispy_field}}
          </div>
     </div>
     <div class="row">
@@ -41,10 +100,11 @@
               </a>
           </div>
 
-
      </div>
 
      </form>
 
 
 {% endblock content %}
+</body>
+</html>

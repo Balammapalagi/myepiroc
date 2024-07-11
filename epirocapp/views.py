@@ -22,7 +22,7 @@ def employee_list(request):
     return render(request, "epirocapp/employee_list.html", context)
 
 
-def employee_form(request, id=0):
+def employee_form1(request, id=0):
     if request.method == "GET":
         if id == 0:
             form = EmployeeForm()
@@ -39,7 +39,7 @@ def employee_form(request, id=0):
 
         if form.is_valid():
             form.save()
-        return redirect('/signin')
+        return redirect('/employee_records')
 
 
 def signup_page(request):
@@ -54,7 +54,7 @@ def signup_page(request):
         else:
             my_user = User.objects.create_user(username, email, pass1)
             my_user.save()
-            return redirect('signin')
+            return redirect('employee_form')
         # return HttpResponse("User has been created successufuullly")
     return render(request, "epirocapp/signup.html", {})
 
@@ -76,18 +76,6 @@ def signin_page(request):
 def logout_page(request):
     login(request)
     return redirect('logout')
-
-
-def emp(request):
-    if request.method == 'POST':
-        form = EmployeeForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/employee_records')
-    else:
-        form = EmployeeForm()
-    # return render(request, "epirocapp/employee_form.html", {'form': form})
-    return render(request, "epirocapp/employee_form.html", {'form': form})
 
 
 def show(request):
@@ -119,3 +107,75 @@ def employee_delete(request, id):
     employee = Employee.objects.get(id=id)
     employee.delete()
     return redirect('employee_list')
+
+
+def employee_form1(request, id =0):
+    if request.method == "GET":
+        if id == 0:
+            form = EmployeeForm()
+        else:
+            employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(instance=employee)
+        return render(request, "epirocapp/employee_form.html", {'form': form})
+    else:
+        if id == 0:
+            form = EmployeeForm(request.POST)
+        else:
+            employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(request.POST,instance =employee)
+        if form.is_valid():
+            form.save()
+        return redirect('/employee_records')
+
+
+def employee_form2(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = EmployeeForm()
+        else:
+            employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(instance=employee)
+        return render(request, "epirocapp/employee_form.html", {'form': form})
+    else:
+        if id == 0:
+            form = EmployeeForm(request.POST)
+        else:
+            employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+        return redirect('employee_list')
+
+
+def employee_form3(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = EmployeeForm()
+        else:
+            employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(instance=employee)
+        return render(request, "epirocapp/employee_form.html", {'form': form})
+    else:
+        if id == 0:
+            form = EmployeeForm(request.POST)
+        else:
+            employee = Employee.objects.get(pk=id)
+            form = EmployeeForm(request.POST, instance=employee)
+
+        if form.is_valid():
+            form.save()
+        return redirect('employee_list')
+
+def employee_form(request):
+    if request.method == "GET":
+        form = EmployeeForm()
+        return render(request, "epirocapp/employee_form.html", {'form':form})
+    else:
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('employee_list')
+
+
+
+

@@ -4,9 +4,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
 <title>HTML</title>
 <style>
+.header {
+         padding: 30px;
+         text-align: center;
+         background: #bc1a6b;
+         color: white;
+         font-size: 30px;
+      }
+      main {
+         padding: 20px;
+         font-size: 18px;
+      }
+    #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
    input[type=text] {
 	  padding: 10px;
 	  font-size: 17px;
@@ -14,7 +49,7 @@
 	  float: left;
 	  width: 50%;
 	  background: #CCCCCC;
-	  text-align: center;
+	  text-align: left;
 	}
 	input[type=submit] {
 	  background-color: #1252FF;
@@ -25,29 +60,28 @@
 	input[type=submit]:hover {
       background: #0b7dda;
 	}
+
 </style>
 </head>
 <body>
-    <h2> Search Button </h2>
-    <form  action="/action_page.php">
-	  <input id="search box" type="text" placeholder="Search here" name="search">
-	  <input id="search btn" type="submit" value="search">
-	</form>
 
-</body>
-</html>
-<table class="table table-bordered">
 <!--    <form  action="/action_page.php">-->
 <!--	  <input id="search box" type="text" placeholder="Search here" name="search">-->
 <!--	  <input id="search btn" type="submit" value="search">-->
 <!--	</form>-->
+
+</body>
+
+</html>
+<table id="customers">
+<!--<table class="table table-bordered">-->
     <thead class="border-bottom font-weight-bold">
          <tr>
             <th>Employee ID</th>
             <th>Employee Name</th>
             <th>Email</th>
             <th>Contact</th>
-            <th>Courses</th>
+            <th>RPA</th>
             <th>Java</th>
             <th>C++</th>
             <th>C#</th>
@@ -57,7 +91,6 @@
             <th>AzureDevOps</th>
             <th>EDIT</th>
             <th>DELETE</th>
-
          </tr>
     </thead>
     <tbody>
@@ -67,7 +100,7 @@
                 <td>{{employee.full_name}}</td>
                 <td>{{employee.email}}</td>
                 <td>{{employee.contact}}</td>
-                <td>{{employee.courses}}</td>
+                <td>{{employee.rpa}}</td>
                 <td>{{employee.java}}</td>
                 <td>{{employee.cplusplus}}</td>
                 <td>{{employee.csharp}}</td>
@@ -75,7 +108,7 @@
                 <td>{{employee.python}}</td>
                 <td>{{employee.powerbi}}</td>
                 <td>{{employee.azuredevops}}</td>
-                <td><a href="/edit/{{ employee.id }}"  class="btn btn-primary"> Edit</a></td>
+                <td><a href="{% url 'employee_update' employee.id %}"  class="btn btn-primary"> Edit</a></td>
                 <td><a href="{% url 'employee_delete' employee.id %}"  class="btn btn-danger"> Delete</a></td>
 
 <!--                <td><a href="/employee_update/{{ employee.id }}"  class="btn btn-primary"> Edit</a></td>-->
